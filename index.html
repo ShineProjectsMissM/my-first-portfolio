@@ -1,55 +1,263 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>My Personal Portfolio</title>
 
   <style>
+
+    * {
+
+      box-sizing: border-box;
+
+    }
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
     body {
-      background-color: #101426;
-      color: white;
+
+      margin: 0;
+
       font-family: Arial, sans-serif;
+
+      background: #101426;
+
+      color: #ffffff;
+
+      line-height: 1.7;
+
+    }
+
+    nav {
+
+      padding: 20px;
+
       text-align: center;
-      padding: 40px 20px;
+
+      border-bottom: 1px solid #303752;
+
+    }
+
+    nav a {
+
+      color: #c4b5fd;
+
+      text-decoration: none;
+
+      margin: 0 10px;
+
+    }
+
+    header {
+
+      text-align: center;
+
+      padding: 75px 20px;
+
     }
 
     h1 {
+
+      font-size: 42px;
+
+      line-height: 1.2;
+
+    }
+
+    h1 span, h2 {
+
       color: #b9a0ff;
-      font-size: 36px;
+
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
+    .intro {
+
+      max-width: 550px;
+
+      margin: 20px auto;
+
+      color: #d4d8e8;
+
     }
 
-    button {
-      background-color: #b9a0ff;
+    .button {
+
+      display: inline-block;
+
+      margin: 8px;
+
+      padding: 12px 22px;
+
+      background: #b9a0ff;
+
       color: #101426;
-      padding: 14px 24px;
-      border: none;
+
       border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
     }
+
+    section {
+
+      max-width: 750px;
+
+      margin: auto;
+
+      padding: 35px 22px;
+
+    }
+
+    .skills span {
+
+      display: inline-block;
+
+      background: #202943;
+
+      border: 1px solid #414b6a;
+
+      padding: 8px 14px;
+
+      border-radius: 20px;
+
+      margin: 5px;
+
+    }
+
+    .project {
+
+      background: #1a2138;
+
+      border: 1px solid #343d5c;
+
+      padding: 20px;
+
+      border-radius: 12px;
+
+    }
+
+    footer {
+
+      text-align: center;
+
+      padding: 25px;
+
+      color: #c4c9dc;
+
+      border-top: 1px solid #303752;
+
+    }
+
   </style>
+
 </head>
 
 <body>
-  <h1>Welcome to My Portfolio!</h1>
 
-  <p>Hello! I'm learning to code and build websites.</p>
+  <nav>
 
-  <p>This is my first personal website, created by me.</p>
+    <a href="#about">About</a>
 
-  <button onclick="sayHello()">Click Me</button>
+    <a href="#skills">Skills</a>
 
-  <script>
-    function sayHello() {
-      alert("Thank you for visiting my website!");
-    }
-  </script>
+    <a href="#projects">Projects</a>
+
+  </nav>
+
+  <header>
+
+    <p>MY PERSONAL PORTFOLIO</p>
+
+    <h1>Hello, I'm <span>Your Name</span>!</h1>
+
+    <p class="intro">
+
+      I'm learning to code, design websites,
+
+      and turn my ideas into reality.
+
+      Welcome to my little corner of the internet.
+
+    </p>
+
+    <a class="button" href="#projects">View My Projects</a>
+
+  </header>
+
+  <section id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+
+      I'm building my skills in web development
+
+      and learning how to create websites from scratch.
+
+      This portfolio will grow as I learn.
+
+    </p>
+
+  </section>
+
+  <section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills">
+
+      <span>HTML — Learning</span>
+
+      <span>CSS — Learning</span>
+
+      <span>JavaScript — Learning</span>
+
+      <span>Creative Thinking</span>
+
+    </div>
+
+  </section>
+
+  <section id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="project">
+
+      <h3>My First Website</h3>
+
+      <p>
+
+        My first portfolio, created with HTML and CSS
+
+        and published using GitHub Pages.
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    Built by me, one line of code at a time.
+
+  </footer>
+
 </body>
+
 </html>
 
+  
