@@ -1,267 +1,539 @@
+
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shernolia creates thoughtful, modern websites for individuals and small businesses.">
+  <title>Shernolia | Web Design & Development</title>
 
-  <title>My Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 
   <style>
-
-    * {
-
-      box-sizing: border-box;
-
+    :root {
+      --cream: #faf6f1;
+      --nude: #eee1d6;
+      --rose: #bd817c;
+      --dark: #302723;
+      --muted: #796c64;
+      --white: #fffdfb;
+      --line: #e6d8ce;
     }
 
-    html {
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-      scroll-behavior: smooth;
-
-    }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
     body {
-
-      margin: 0;
-
-      font-family: Arial, sans-serif;
-
-      background: #101426;
-
-      color: #ffffff;
-
+      background: var(--cream);
+      color: var(--dark);
+      font-family: "DM Sans", sans-serif;
       line-height: 1.7;
+    }
 
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(1100px, 90%); margin: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(250,246,241,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
     }
 
     nav {
-
-      padding: 20px;
-
-      text-align: center;
-
-      border-bottom: 1px solid #303752;
-
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
 
-    nav a {
-
-      color: #c4b5fd;
-
-      text-decoration: none;
-
-      margin: 0 10px;
-
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      font-style: italic;
     }
 
-    header {
+    .logo span { color: var(--rose); }
 
-      text-align: center;
-
-      padding: 75px 20px;
-
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: .86rem;
     }
 
-    h1 {
-
-      font-size: 42px;
-
-      line-height: 1.2;
-
-    }
-
-    h1 span, h2 {
-
-      color: #b9a0ff;
-
-    }
-
-    .intro {
-
-      max-width: 550px;
-
-      margin: 20px auto;
-
-      color: #d4d8e8;
-
-    }
+    .nav-links a:hover { color: var(--rose); }
 
     .button {
-
       display: inline-block;
+      padding: 12px 23px;
+      border-radius: 50px;
+      background: var(--dark);
+      color: white;
+      font-size: .9rem;
+      transition: transform .25s, background .25s;
+    }
 
-      margin: 8px;
+    .button:hover { transform: translateY(-3px); background: var(--rose); }
 
-      padding: 12px 22px;
+    .button.light {
+      background: transparent;
+      color: var(--dark);
+      border: 1px solid var(--line);
+    }
 
-      background: #b9a0ff;
+    .hero { padding: 100px 0 85px; }
 
-      color: #101426;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 65px;
+      align-items: center;
+    }
 
+    .eyebrow {
+      color: var(--rose);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -2px; }
+    h1 em { color: var(--rose); font-weight: 500; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: 1.5rem; }
+
+    .hero-copy {
+      max-width: 520px;
+      color: var(--muted);
+      margin: 24px 0 30px;
+    }
+
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .hero-art {
+      min-height: 390px;
+      border-radius: 48% 48% 18px 18px;
+      background:
+        radial-gradient(circle at 70% 25%, #fff8f1 0 12%, transparent 13%),
+        linear-gradient(145deg, #e9d5c7, #c79b90 58%, #8f6860);
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .design-card {
+      width: 100%;
+      max-width: 310px;
+      padding: 35px 25px;
+      background: rgba(255,253,251,.92);
+      box-shadow: 0 25px 60px #50382b20;
+      transform: rotate(-4deg);
+      text-align: center;
+    }
+
+    .design-card small { letter-spacing: 3px; color: var(--rose); }
+    .design-card h2 { margin: 15px 0; font-size: 2.5rem; }
+    .design-card p { font-size: .85rem; color: var(--muted); }
+
+    section { padding: 85px 0; }
+
+    .section-intro { max-width: 600px; margin-bottom: 38px; }
+    .section-intro p { color: var(--muted); margin-top: 14px; }
+
+    .about-grid, .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .about-note {
+      background: var(--nude);
+      padding: 35px;
       border-radius: 8px;
-
-      text-decoration: none;
-
-      font-weight: bold;
-
     }
 
-    section {
+    .about-note p { margin-top: 12px; color: var(--muted); }
 
-      max-width: 750px;
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 
-      margin: auto;
-
-      padding: 35px 22px;
-
-    }
-
-    .skills span {
-
-      display: inline-block;
-
-      background: #202943;
-
-      border: 1px solid #414b6a;
-
+    .skill {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 50px;
       padding: 8px 14px;
-
-      border-radius: 20px;
-
-      margin: 5px;
-
+      font-size: .83rem;
     }
 
-    .project {
+    .services-grid, .packages-grid, .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-      background: #1a2138;
-
-      border: 1px solid #343d5c;
-
-      padding: 20px;
-
+    .service, .package, .project {
+      background: var(--white);
+      border: 1px solid var(--line);
       border-radius: 12px;
-
+      padding: 27px;
+      transition: transform .25s, box-shadow .25s;
     }
+
+    .service:hover, .package:hover, .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #49352a0c;
+    }
+
+    .service-number { color: var(--rose); font-size: .8rem; letter-spacing: 2px; }
+    .service h3, .project h3 { margin: 15px 0 10px; }
+    .service p, .project p { color: var(--muted); font-size: .92rem; }
+
+    #services, #portfolio { background: #f2e9e1; }
+
+    .package { display: flex; flex-direction: column; align-items: flex-start; }
+    .package.featured { border: 2px solid var(--rose); }
+
+    .package-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--rose);
+      font-weight: 700;
+    }
+
+    .price {
+      font-family: "Playfair Display", serif;
+      font-size: 2.5rem;
+      margin: 12px 0 4px;
+    }
+
+    .package > p { color: var(--muted); font-size: .88rem; }
+
+    .package ul {
+      list-style: none;
+      margin: 22px 0;
+      flex: 1;
+    }
+
+    .package li { margin-bottom: 10px; font-size: .9rem; }
+    .package li::before { content: "✓  "; color: var(--rose); font-weight: bold; }
+
+    .package .button { margin-top: auto; }
+
+    .project-visual {
+      min-height: 150px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #e6d2c3, #b7837c);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .project:nth-child(2) .project-visual {
+      background: linear-gradient(135deg, #d7c7b8, #8f7567);
+    }
+
+    .project:nth-child(3) .project-visual {
+      background: linear-gradient(135deg, #e8ddd0, #c6a7a0);
+    }
+
+    .project-tag { color: var(--rose); font-size: .78rem; margin-top: 8px; }
+
+    .contact-box {
+      background: var(--nude);
+      border-radius: 12px;
+      padding: 35px;
+    }
+
+    .contact-box p { color: var(--muted); margin: 15px 0 22px; }
 
     footer {
-
-      text-align: center;
-
-      padding: 25px;
-
-      color: #c4c9dc;
-
-      border-top: 1px solid #303752;
-
+      background: var(--dark);
+      color: #f8eee7;
+      padding: 28px 0;
+      font-size: .85rem;
     }
 
-  </style>
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
+    .reveal {
+      animation: appear .8s ease both;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      nav { padding: 16px 0; align-items: flex-start; }
+      .nav-links { gap: 10px 14px; justify-content: flex-end; }
+      .nav-links a { font-size: .78rem; }
+      .nav-cta { display: none; }
+      .hero { padding: 65px 0; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+      .hero-art { min-height: 280px; }
+      section { padding: 65px 0; }
+      .services-grid, .packages-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
-
-  <nav>
-
-    <a href="#about">About</a>
-
-    <a href="#skills">Skills</a>
-
-    <a href="#projects">Projects</a>
-
-  </nav>
-
   <header>
-
-    <p>MY PERSONAL PORTFOLIO</p>
-
-    <h1>Hello, I'm <span>Shernolia Morgan</span>!</h1>
-
-    <p class="intro">
-
-      I'm learning to code, design websites,
-
-      and turn my ideas into reality.
-
-      Welcome to my little corner of the internet.
-
-    </p>
-
-    <a class="button" href="#projects">View My Projects</a>
-
+    <nav class="container">
+      <a class="logo" href="#home">Shernolia<span>.</span></a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#portfolio">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="button nav-cta" href="#contact">Let's talk ↗</a>
+    </nav>
   </header>
 
-  <section id="about">
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">Web design · Digital creativity</p>
+          <h1>Beautiful websites.<br><em>Bold ideas.</em></h1>
+          <p class="hero-copy">
+            Your brand deserves a thoughtful online home.
+            I create clean, modern website experiences for
+            individuals and small businesses ready to grow.
+          </p>
+          <div class="actions">
+            <a class="button" href="#portfolio">Explore my work ↗</a>
+            <a class="button light" href="#packages">View packages</a>
+          </div>
+        </div>
 
-    <h2>About Me</h2>
+        <div class="hero-art reveal" aria-label="Abstract nude-toned website design artwork">
+          <div class="design-card">
+            <small>YOUR NEXT CHAPTER</small>
+            <h2>Dream.<br>Design.<br><em>Build.</em></h2>
+            <p>Thoughtful design. Meaningful digital experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p>
+    <section id="about">
+      <div class="container about-grid">
+        <div class="section-intro">
+          <p class="eyebrow">A little about me</p>
+          <h2>Learning, creating, and building with purpose.</h2>
+          <p>
+            I'm Shernolia, a student and aspiring web designer
+            exploring the world of technology. I'm growing my
+            skills by building projects and learning how to turn
+            ideas into useful, beautiful websites.
+          </p>
+        </div>
+        <div class="about-note">
+          <h3>My approach</h3>
+          <p>
+            Good design should feel welcoming, work smoothly
+            on mobile, and make it easy for people to understand
+            what your business offers.
+          </p>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript — learning</span>
+            <span class="skill">Responsive design</span>
+            <span class="skill">Creative problem-solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      I'm building my skills in web development
+    <section id="services">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">What I can help with</p>
+          <h2>Digital essentials, beautifully considered.</h2>
+          <p>Simple website solutions for your next step online.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service">
+            <span class="service-number">01 / DESIGN</span>
+            <h3>Website design</h3>
+            <p>Clean layouts, thoughtful colours and a visual style that suits your brand.</p>
+          </article>
+          <article class="service">
+            <span class="service-number">02 / BUILD</span>
+            <h3>Portfolio websites</h3>
+            <p>A home online to introduce yourself, share your work and help people contact you.</p>
+          </article>
+          <article class="service">
+            <span class="service-number">03 / GROW</span>
+            <h3>Small business sites</h3>
+            <p>A clear online presence to explain your services and help customers reach you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      and learning how to create websites from scratch.
+    <section id="packages">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Services & pricing</p>
+          <h2>Choose your next step.</h2>
+          <p>Introductory packages for individuals and small businesses. Final quotes depend on your requirements.</p>
+        </div>
 
-      This portfolio will grow as I learn.
+        <div class="packages-grid">
+          <article class="package">
+            <span class="package-label">01 · The essentials</span>
+            <h3>Starter</h3>
+            <div class="price">R850</div>
+            <p>For a simple first website.</p>
+            <ul>
+              <li>One-page website</li>
+              <li>Mobile-friendly layout</li>
+              <li>About and services sections</li>
+              <li>WhatsApp or email link</li>
+            </ul>
+            <a class="button light" href="#contact">Enquire about Starter</a>
+          </article>
 
-    </p>
+          <article class="package featured">
+            <span class="package-label">02 · Most popular</span>
+            <h3>Signature</h3>
+            <div class="price">R1,800</div>
+            <p>For a growing business.</p>
+            <ul>
+              <li>Up to five pages</li>
+              <li>Custom colours and typography</li>
+              <li>Services and project gallery</li>
+              <li>Contact section</li>
+              <li>Basic SEO-friendly structure</li>
+            </ul>
+            <a class="button" href="#contact">Enquire about Signature</a>
+          </article>
 
-  </section>
+          <article class="package">
+            <span class="package-label">03 · The complete look</span>
+            <h3>Luxe</h3>
+            <div class="price">R3,500</div>
+            <p>For a more developed online presence.</p>
+            <ul>
+              <li>Up to eight pages</li>
+              <li>More advanced visual design</li>
+              <li>Portfolio or gallery</li>
+              <li>Mobile optimisation</li>
+              <li>Basic SEO and launch guidance</li>
+            </ul>
+            <a class="button light" href="#contact">Enquire about Luxe</a>
+          </article>
+        </div>
+        <p style="margin-top:24px;color:var(--muted);font-size:.85rem">
+          Prices are introductory estimates. Domain fees, paid tools, online-store functionality and ongoing maintenance are quoted separately. Features and timelines are confirmed before work begins.
+        </p>
+      </div>
+    </section>
 
-  <section id="skills">
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Selected work</p>
+          <h2>Ideas in progress.</h2>
+          <p>A growing collection of practice projects and website concepts.</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="project">
+            <div class="project-visual">Personal Portfolio</div>
+            <h3>My portfolio</h3>
+            <p>A personal website to introduce my journey into tech.</p>
+            <div class="project-tag">Personal project</div>
+          </article>
+          <article class="project">
+            <div class="project-visual">Beauty & Care</div>
+            <h3>Beauty brand concept</h3>
+            <p>A visual concept for a beauty business with an elegant online presence.</p>
+            <div class="project-tag">Design concept</div>
+          </article>
+          <article class="project">
+            <div class="project-visual">Small Business</div>
+            <h3>Business website concept</h3>
+            <p>A simple concept showing how a small business could present its services.</p>
+            <div class="project-tag">Practice concept</div>
+          </article>
+        </div>
+        <p style="margin-top:22px;color:var(--muted);font-size:.85rem">
+          Concept projects are examples, not completed client work.
+        </p>
+      </div>
+    </section>
 
-    <h2>My Skills</h2>
-
-    <div class="skills">
-
-      <span>HTML — Learning</span>
-
-      <span>CSS — Learning</span>
-
-      <span>JavaScript — Learning</span>
-
-      <span>Creative Thinking</span>
-
-    </div>
-
-  </section>
-
-  <section id="projects">
-
-    <h2>My Projects</h2>
-
-    <div class="project">
-
-      <h3>My First Website</h3>
-
-      <p>
-
-        My first portfolio, created with HTML and CSS
-
-        and published using GitHub Pages.
-
-      </p>
-
-    </div>
-
-  </section>
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="section-intro">
+          <p class="eyebrow">Let's work together</p>
+          <h2>Your idea could be our next project.</h2>
+          <p>
+            Have a business idea or need a website? Send an enquiry
+            with a little information about what you're looking for.
+          </p>
+        </div>
+        <div class="contact-box">
+          <h3>Start a conversation</h3>
+          <p>Tell me about your idea, the type of website you need and your preferred package.</p>
+          <!-- Replace the placeholder email address below with your real email. -->
+          <a class="button" href="mailto:YOUR-EMAIL@example.com?subject=Website%20Enquiry">Email me ↗</a>
+          <p style="font-size:.82rem;margin-bottom:0">
+            Email: shernoliasagemorgan@gmail.com
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-
-    Built by me, one line of code at a time.
-
-    <a class="button" href="mailto:shernoliasagemorgan@gmail.com">
-  Email Me
-</a>
-    
+    <div class="container footer-inner">
+      <span class="logo">Shernolia<span>.</span></span>
+      <span>© 2026 Shernolia · Built with care.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
   </footer>
-
 </body>
-
 </html>
-
-  
