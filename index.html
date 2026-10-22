@@ -4,26 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shernolia creates thoughtful, modern websites for individuals and small businesses.">
+  <meta name="description" content="Shernolia creates thoughtful, elegant websites for individuals and small businesses.">
+  <meta name="theme-color" content="#faf6f1">
+
   <title>Shernolia | Web Design & Development</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --cream: #faf6f1;
       --nude: #eee1d6;
-      --rose: #bd817c;
+      --rose: #b7837c;
+      --brown: #49372f;
       --dark: #302723;
       --muted: #796c64;
       --white: #fffdfb;
       --line: #e6d8ce;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
     body {
       background: var(--cream);
@@ -32,15 +43,21 @@
       line-height: 1.7;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    .container { width: min(1100px, 90%); margin: auto; }
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
 
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(250,246,241,.94);
+      background: rgba(250, 246, 241, .96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -57,43 +74,88 @@
       font-family: "Playfair Display", serif;
       font-size: 1.7rem;
       font-style: italic;
+      white-space: nowrap;
     }
 
-    .logo span { color: var(--rose); }
+    .logo span,
+    h1 em,
+    .design-card em {
+      color: var(--rose);
+    }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 22px;
+      gap: 18px;
       font-size: .86rem;
     }
 
-    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover {
+      color: var(--rose);
+    }
 
     .button {
       display: inline-block;
-      padding: 12px 23px;
+      padding: 12px 22px;
+      border: 1px solid transparent;
       border-radius: 50px;
       background: var(--dark);
       color: white;
       font-size: .9rem;
+      text-align: center;
       transition: transform .25s, background .25s;
     }
 
-    .button:hover { transform: translateY(-3px); background: var(--rose); }
+    .button:hover {
+      transform: translateY(-3px);
+      background: var(--rose);
+    }
 
     .button.light {
       background: transparent;
       color: var(--dark);
-      border: 1px solid var(--line);
+      border-color: var(--line);
     }
 
-    .hero { padding: 100px 0 85px; }
+    .button.light:hover {
+      color: white;
+      border-color: var(--rose);
+    }
+
+    /* WELCOME SECTION WITH FLORAL LINE ART */
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 100px 0 85px;
+      background:
+        radial-gradient(ellipse at 5% 10%, #eee1d6 0, transparent 38%),
+        var(--cream);
+    }
+
+    .floral-art {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: min(58%, 700px);
+      height: 100%;
+      color: #a77e70;
+      opacity: .48;
+      pointer-events: none;
+    }
+
+    .floral-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
-      gap: 65px;
+      gap: 55px;
       align-items: center;
     }
 
@@ -112,10 +174,22 @@
       line-height: 1.2;
     }
 
-    h1 { font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -2px; }
-    h1 em { color: var(--rose); font-weight: 500; }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); }
-    h3 { font-size: 1.5rem; }
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      letter-spacing: -2px;
+    }
+
+    h1 em {
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
 
     .hero-copy {
       max-width: 520px;
@@ -123,7 +197,11 @@
       margin: 24px 0 30px;
     }
 
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
     .hero-art {
       min-height: 390px;
@@ -141,22 +219,43 @@
       width: 100%;
       max-width: 310px;
       padding: 35px 25px;
-      background: rgba(255,253,251,.92);
+      background: rgba(255, 253, 251, .94);
       box-shadow: 0 25px 60px #50382b20;
       transform: rotate(-4deg);
       text-align: center;
     }
 
-    .design-card small { letter-spacing: 3px; color: var(--rose); }
-    .design-card h2 { margin: 15px 0; font-size: 2.5rem; }
-    .design-card p { font-size: .85rem; color: var(--muted); }
+    .design-card small {
+      letter-spacing: 3px;
+      color: var(--rose);
+    }
 
-    section { padding: 85px 0; }
+    .design-card h2 {
+      margin: 15px 0;
+      font-size: 2.5rem;
+    }
 
-    .section-intro { max-width: 600px; margin-bottom: 38px; }
-    .section-intro p { color: var(--muted); margin-top: 14px; }
+    .design-card p {
+      font-size: .85rem;
+      color: var(--muted);
+    }
 
-    .about-grid, .contact-grid {
+    section:not(.hero) {
+      padding: 85px 0;
+    }
+
+    .section-intro {
+      max-width: 650px;
+      margin-bottom: 38px;
+    }
+
+    .section-intro p:not(.eyebrow) {
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .about-grid,
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 55px;
@@ -166,12 +265,20 @@
     .about-note {
       background: var(--nude);
       padding: 35px;
-      border-radius: 8px;
+      border-radius: 12px;
     }
 
-    .about-note p { margin-top: 12px; color: var(--muted); }
+    .about-note p {
+      margin-top: 12px;
+      color: var(--muted);
+    }
 
-    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
 
     .skill {
       background: var(--white);
@@ -181,13 +288,17 @@
       font-size: .83rem;
     }
 
-    .services-grid, .packages-grid, .portfolio-grid {
+    .services-grid,
+    .packages-grid,
+    .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
     }
 
-    .service, .package, .project {
+    .service,
+    .package,
+    .project {
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 12px;
@@ -195,19 +306,44 @@
       transition: transform .25s, box-shadow .25s;
     }
 
-    .service:hover, .package:hover, .project:hover {
+    .service:hover,
+    .package:hover,
+    .project:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 35px #49352a0c;
     }
 
-    .service-number { color: var(--rose); font-size: .8rem; letter-spacing: 2px; }
-    .service h3, .project h3 { margin: 15px 0 10px; }
-    .service p, .project p { color: var(--muted); font-size: .92rem; }
+    .service-number {
+      color: var(--rose);
+      font-size: .8rem;
+      letter-spacing: 2px;
+    }
 
-    #services, #portfolio { background: #f2e9e1; }
+    .service h3,
+    .project h3 {
+      margin: 15px 0 10px;
+    }
 
-    .package { display: flex; flex-direction: column; align-items: flex-start; }
-    .package.featured { border: 2px solid var(--rose); }
+    .service p,
+    .project p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    #services,
+    #portfolio {
+      background: #f2e9e1;
+    }
+
+    .package {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .package.featured {
+      border: 2px solid var(--rose);
+    }
 
     .package-label {
       font-size: .72rem;
@@ -223,7 +359,10 @@
       margin: 12px 0 4px;
     }
 
-    .package > p { color: var(--muted); font-size: .88rem; }
+    .package > p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
 
     .package ul {
       list-style: none;
@@ -231,10 +370,20 @@
       flex: 1;
     }
 
-    .package li { margin-bottom: 10px; font-size: .9rem; }
-    .package li::before { content: "✓  "; color: var(--rose); font-weight: bold; }
+    .package li {
+      margin-bottom: 10px;
+      font-size: .9rem;
+    }
 
-    .package .button { margin-top: auto; }
+    .package li::before {
+      content: "✓  ";
+      color: var(--rose);
+      font-weight: bold;
+    }
+
+    .package .button {
+      margin-top: auto;
+    }
 
     .project-visual {
       min-height: 150px;
@@ -258,7 +407,11 @@
       background: linear-gradient(135deg, #e8ddd0, #c6a7a0);
     }
 
-    .project-tag { color: var(--rose); font-size: .78rem; margin-top: 8px; }
+    .project-tag {
+      color: var(--rose);
+      font-size: .78rem;
+      margin-top: 8px;
+    }
 
     .contact-box {
       background: var(--nude);
@@ -266,7 +419,28 @@
       padding: 35px;
     }
 
-    .contact-box p { color: var(--muted); margin: 15px 0 22px; }
+    .contact-box > p {
+      color: var(--muted);
+      margin: 15px 0 22px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-details {
+      margin-top: 22px;
+      font-size: .9rem;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-details a {
+      text-decoration: underline;
+      text-decoration-color: #b7837c80;
+      text-underline-offset: 4px;
+    }
 
     footer {
       background: var(--dark);
@@ -278,8 +452,13 @@
     .footer-inner {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 15px;
       flex-wrap: wrap;
+    }
+
+    .footer-inner a:hover {
+      color: #e6bcb2;
     }
 
     .reveal {
@@ -287,8 +466,14 @@
     }
 
     @keyframes appear {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -300,15 +485,58 @@
     }
 
     @media (max-width: 760px) {
-      nav { padding: 16px 0; align-items: flex-start; }
-      .nav-links { gap: 10px 14px; justify-content: flex-end; }
-      .nav-links a { font-size: .78rem; }
-      .nav-cta { display: none; }
-      .hero { padding: 65px 0; }
-      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
-      .hero-art { min-height: 280px; }
-      section { padding: 65px 0; }
-      .services-grid, .packages-grid, .portfolio-grid { grid-template-columns: 1fr; }
+      nav {
+        padding: 16px 0;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 8px 12px;
+        justify-content: flex-end;
+      }
+
+      .nav-links a {
+        font-size: .78rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .floral-art {
+        width: 100%;
+        opacity: .28;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero-art {
+        min-height: 280px;
+      }
+
+      section:not(.hero) {
+        padding: 65px 0;
+      }
+
+      .services-grid,
+      .packages-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -317,6 +545,7 @@
   <header>
     <nav class="container">
       <a class="logo" href="#home">Shernolia<span>.</span></a>
+
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -325,28 +554,139 @@
         <a href="#portfolio">Work</a>
         <a href="#contact">Contact</a>
       </div>
+
       <a class="button nav-cta" href="#contact">Let's talk ↗</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
+
+      <!-- Decorative floral line drawings: welcome section only -->
+      <div class="floral-art" aria-hidden="true">
+        <svg viewBox="0 0 620 680" fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice">
+
+          <g stroke="currentColor" stroke-width="1.5"
+             stroke-linecap="round" stroke-linejoin="round">
+
+            <!-- Main curved stem -->
+            <path d="M620 650 C500 560 540 440 455 350
+                     C410 300 390 220 425 130" />
+
+            <!-- Upper flower -->
+            <path d="M425 130
+                     C397 105 370 111 372 132
+                     C374 151 400 151 425 130Z" />
+            <path d="M425 130
+                     C407 99 421 76 438 88
+                     C453 99 442 119 425 130Z" />
+            <path d="M425 130
+                     C455 109 477 123 463 140
+                     C452 153 435 143 425 130Z" />
+            <path d="M425 130
+                     C451 148 445 174 425 165
+                     C408 157 416 141 425 130Z" />
+            <path d="M425 130
+                     C400 156 378 144 389 127
+                     C399 114 414 122 425 130Z" />
+            <circle cx="425" cy="132" r="8" />
+
+            <!-- Left leaf -->
+            <path d="M475 365
+                     C423 360 396 325 400 296
+                     C445 305 472 330 475 365Z" />
+            <path d="M405 302 C429 323 449 343 475 365" />
+
+            <!-- Right leaf -->
+            <path d="M495 430
+                     C538 390 578 399 591 420
+                     C559 449 527 448 495 430Z" />
+            <path d="M495 430 C532 426 558 422 591 420" />
+
+            <!-- Lower flower stem -->
+            <path d="M455 350
+                     C380 365 350 426 320 485
+                     C295 535 262 565 215 595" />
+
+            <!-- Lower flower -->
+            <path d="M215 595
+                     C186 578 187 552 207 552
+                     C227 553 228 579 215 595Z" />
+            <path d="M215 595
+                     C193 620 205 641 223 630
+                     C238 621 228 605 215 595Z" />
+            <path d="M215 595
+                     C242 575 263 590 249 607
+                     C238 621 222 608 215 595Z" />
+            <path d="M215 595
+                     C240 613 232 638 212 628
+                     C197 620 206 605 215 595Z" />
+            <path d="M215 595
+                     C190 611 171 594 186 579
+                     C198 568 208 584 215 595Z" />
+            <circle cx="215" cy="596" r="7" />
+
+            <!-- Decorative side leaves -->
+            <path d="M353 423
+                     C310 407 290 377 303 354
+                     C342 371 357 394 353 423Z" />
+            <path d="M305 360 C324 381 340 401 353 423" />
+
+            <path d="M306 510
+                     C336 474 370 481 377 500
+                     C353 524 326 526 306 510Z" />
+            <path d="M306 510 C332 506 354 503 377 500" />
+
+            <!-- Fine background sprig -->
+            <path d="M590 180 C540 240 550 285 580 320" />
+            <path d="M570 216
+                     C535 211 523 188 534 173
+                     C558 181 570 197 570 216Z" />
+            <path d="M557 259
+                     C585 231 610 239 614 255
+                     C595 275 574 274 557 259Z" />
+            <path d="M557 259 L614 255" />
+
+            <!-- Small blossom -->
+            <path d="M510 540
+                     C489 525 493 508 507 510
+                     C520 512 519 528 510 540Z" />
+            <path d="M510 540
+                     C530 525 546 536 536 549
+                     C526 559 515 548 510 540Z" />
+            <path d="M510 540
+                     C518 560 505 573 493 560
+                     C484 550 500 543 510 540Z" />
+            <circle cx="510" cy="540" r="4" />
+          </g>
+        </svg>
+      </div>
+
       <div class="container hero-grid">
         <div class="reveal">
           <p class="eyebrow">Web design · Digital creativity</p>
-          <h1>Beautiful websites.<br><em>Bold ideas.</em></h1>
+
+          <h1>
+            Beautiful websites.<br>
+            <em>Bold ideas.</em>
+          </h1>
+
           <p class="hero-copy">
             Your brand deserves a thoughtful online home.
             I create clean, modern website experiences for
             individuals and small businesses ready to grow.
           </p>
+
           <div class="actions">
             <a class="button" href="#portfolio">Explore my work ↗</a>
             <a class="button light" href="#packages">View packages</a>
           </div>
         </div>
 
-        <div class="hero-art reveal" aria-label="Abstract nude-toned website design artwork">
+        <div class="hero-art reveal"
+             aria-label="Abstract nude-toned website design artwork">
           <div class="design-card">
             <small>YOUR NEXT CHAPTER</small>
             <h2>Dream.<br>Design.<br><em>Build.</em></h2>
@@ -368,6 +708,7 @@
             ideas into useful, beautiful websites.
           </p>
         </div>
+
         <div class="about-note">
           <h3>My approach</h3>
           <p>
@@ -375,6 +716,7 @@
             on mobile, and make it easy for people to understand
             what your business offers.
           </p>
+
           <div class="skills">
             <span class="skill">HTML</span>
             <span class="skill">CSS</span>
@@ -393,21 +735,33 @@
           <h2>Digital essentials, beautifully considered.</h2>
           <p>Simple website solutions for your next step online.</p>
         </div>
+
         <div class="services-grid">
           <article class="service">
             <span class="service-number">01 / DESIGN</span>
             <h3>Website design</h3>
-            <p>Clean layouts, thoughtful colours and a visual style that suits your brand.</p>
+            <p>
+              Clean layouts, thoughtful colours and a visual
+              style that suits your brand.
+            </p>
           </article>
+
           <article class="service">
             <span class="service-number">02 / BUILD</span>
             <h3>Portfolio websites</h3>
-            <p>A home online to introduce yourself, share your work and help people contact you.</p>
+            <p>
+              A home online to introduce yourself, share your
+              work and help people contact you.
+            </p>
           </article>
+
           <article class="service">
             <span class="service-number">03 / GROW</span>
             <h3>Small business sites</h3>
-            <p>A clear online presence to explain your services and help customers reach you.</p>
+            <p>
+              A clear online presence to explain your services
+              and help customers reach you.
+            </p>
           </article>
         </div>
       </div>
@@ -418,7 +772,10 @@
         <div class="section-intro">
           <p class="eyebrow">Services & pricing</p>
           <h2>Choose your next step.</h2>
-          <p>Introductory packages for individuals and small businesses. Final quotes depend on your requirements.</p>
+          <p>
+            Introductory packages for individuals and small
+            businesses. Final quotes depend on your requirements.
+          </p>
         </div>
 
         <div class="packages-grid">
@@ -466,8 +823,12 @@
             <a class="button light" href="#contact">Enquire about Luxe</a>
           </article>
         </div>
+
         <p style="margin-top:24px;color:var(--muted);font-size:.85rem">
-          Prices are introductory estimates. Domain fees, paid tools, online-store functionality and ongoing maintenance are quoted separately. Features and timelines are confirmed before work begins.
+          Prices are introductory estimates. Domain fees, paid
+          tools, online-store functionality and ongoing maintenance
+          are quoted separately. Features and timelines are
+          confirmed before work begins.
         </p>
       </div>
     </section>
@@ -479,6 +840,7 @@
           <h2>Ideas in progress.</h2>
           <p>A growing collection of practice projects and website concepts.</p>
         </div>
+
         <div class="portfolio-grid">
           <article class="project">
             <div class="project-visual">Personal Portfolio</div>
@@ -486,19 +848,28 @@
             <p>A personal website to introduce my journey into tech.</p>
             <div class="project-tag">Personal project</div>
           </article>
+
           <article class="project">
             <div class="project-visual">Beauty & Care</div>
             <h3>Beauty brand concept</h3>
-            <p>A visual concept for a beauty business with an elegant online presence.</p>
+            <p>
+              A visual concept for a beauty business with an
+              elegant online presence.
+            </p>
             <div class="project-tag">Design concept</div>
           </article>
+
           <article class="project">
             <div class="project-visual">Small Business</div>
             <h3>Business website concept</h3>
-            <p>A simple concept showing how a small business could present its services.</p>
+            <p>
+              A simple concept showing how a small business
+              could present its services.
+            </p>
             <div class="project-tag">Practice concept</div>
           </article>
         </div>
+
         <p style="margin-top:22px;color:var(--muted);font-size:.85rem">
           Concept projects are examples, not completed client work.
         </p>
@@ -515,14 +886,44 @@
             with a little information about what you're looking for.
           </p>
         </div>
+
         <div class="contact-box">
           <h3>Start a conversation</h3>
-          <p>Tell me about your idea, the type of website you need and your preferred package.</p>
-          <!-- Replace the placeholder email address below with your real email. -->
-          <a class="button" href="mailto:YOUR-EMAIL@example.com?subject=Website%20Enquiry">Email me ↗</a>
-          <p style="font-size:.82rem;margin-bottom:0">
-            Email: shernoliasagemorgan@gmail.com
+          <p>
+            Tell me about your idea, the type of website you need
+            and your preferred package.
           </p>
+
+          <div class="contact-buttons">
+            <a class="button"
+               href="mailto:shernoliasagemorgan@gmail.com?subject=Website%20Enquiry">
+              Email me ↗
+            </a>
+
+            <a class="button"
+               href="https://wa.me/27617912607"
+               target="_blank"
+               rel="noopener noreferrer">
+              Chat on WhatsApp ↗
+            </a>
+          </div>
+
+          <div class="contact-details">
+            <p>
+              Email:
+              <a href="mailto:shernoliasagemorgan@gmail.com">
+                shernoliasagemorgan@gmail.com
+              </a>
+            </p>
+            <p>
+              WhatsApp:
+              <a href="https://wa.me/27617912607"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                061 791 2607
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -530,7 +931,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <span class="logo">Shernolia<span>.</span></span>
+      <a class="logo" href="#home">Shernolia<span>.</span></a>
       <span>© 2026 Shernolia · Built with care.</span>
       <a href="#home">Back to top ↑</a>
     </div>
